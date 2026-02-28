@@ -87,28 +87,3 @@
     height: 20px;
   }
 }
-
-.button-disable {
-  background: linear-gradient(90deg, #79ea22 0%, #bbf025 100%);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  color: #000;
-  cursor: default;
-  transition:
-    background-color 0s,
-    color 0s,
-    border-color 0s,
-    box-shadow 0s,
-    transform 0s !important;
-}
-
-button:disabled {
-  color: #000;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-.button-blue {
-  color: #fff;
-  background-color: #424aa1;
-  box-shadow: 0px 2px 6px 0px #00000040;
-}
