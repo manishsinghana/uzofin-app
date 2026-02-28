@@ -1,0 +1,808 @@
+// ================================
+// Variables
+// ================================
+
+// Colors
+$color-white: #fff;
+$color-muted: #c4c4c4;
+$color-accent-blue: #37ccf7;
+$color-accent-cyan: #1fcff1;
+$color-dark-transparent: rgba(3, 3, 3, 0.3);
+
+// Gradients
+$gradient-one: linear-gradient(90deg, #00fff3 0%, #ab5eff 100%);
+$gradient-two: linear-gradient(78.75deg, #714dff 0%, #9c83ff 59.62%, #e151ff 77.97%);
+$gradient-three: linear-gradient(78.75deg, #714dff 0%, #9c83ff 31.28%, #e151ff 77.97%, #fff759 95.64%);
+$gradient-purple: linear-gradient(261.81deg, #19fb9b -8.01%, #8c01fa 100%);
+$gradient-blue: linear-gradient(260.33deg, #0047ff -13.37%, #00bcd4 109.53%);
+$gradient-green: linear-gradient(265.11deg, #00ffbd -5.84%, #025b8c 111.58%);
+$gradient-feature-card: linear-gradient(90deg, #006bf1 0%, #00a9db 100%);
+$gradient-industry-title: linear-gradient(90deg, #440178 0%, #8c01fa 100%);
+
+// Font Sizes
+$font-xxl: 96px;
+$font-xl: 80px;
+$font-lg: 64px;
+$font-subtitle: 36px;
+$font-subtitle-text: 20px;
+
+// ================================
+// Mixins
+// ================================
+
+@mixin gradient-text($gradient) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// ================================
+// Typography Utilities
+// ================================
+
+.section-title-xxl {
+  font-size: $font-xxl;
+  line-height: 1;
+  font-weight: 300;
+  color: $color-white;
+  padding-bottom: 72px;
+}
+
+.section-title-xl {
+  font-size: $font-xl;
+  line-height: 1.5;
+  font-weight: 400;
+  color: $color-white;
+}
+
+.section-title-lg {
+  font-size: $font-lg;
+  line-height: 1.5;
+  font-weight: 400;
+  color: $color-white;
+}
+
+.section-subtitle-text {
+  font-size: $font-subtitle-text;
+  line-height: 1.5;
+  color: $color-muted;
+}
+
+.section-subtitle {
+  font-size: $font-subtitle;
+  font-weight: 400;
+  color: $color-accent-blue;
+}
+
+.gradient-text-one {
+  @include gradient-text($gradient-one);
+}
+
+.gradient-text-two {
+  @include gradient-text($gradient-two);
+}
+
+.gradient-text-three {
+  @include gradient-text($gradient-three);
+}
+
+// ================================
+// Hero Banner Section
+// ================================
+
+.hero-banner {
+  padding-top: 250px;
+  padding-bottom: 85px;
+
+  p {
+    font-size: 22px;
+    line-height: 1.5;
+    color: $color-white;
+    max-width: 995px;
+    margin: 0 auto;
+  }
+
+  .section-title-lg {
+    margin-bottom: 35px;
+  }
+
+  .slide-up {
+    animation-delay: 1.25s;
+  }
+}
+
+.left-animatated-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  z-index: -1;
+  transform: scale(0.75) translate(-40px, -40px);
+  transform-origin: top left;
+  animation: revealImage 1.2s ease-out forwards;
+}
+
+.right-animatated-img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  z-index: -1;
+  transform: scale(0.75) translate(-40px, -40px);
+  transform-origin: top right;
+  animation: revealImage 1.2s ease-out forwards;
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealImage {
+  to {
+    opacity: 1;
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+// ================================
+// Trusted Brands Section
+// ================================
+
+.trusted-brands {
+  padding: 48px 0;
+
+  p {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: $color-accent-blue;
+    padding-bottom: 32px;
+  }
+}
+
+.brand-slide {
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ================================
+// Core Solutions Section
+// ================================
+
+.core-solutions {
+  padding-top: 190px;
+  padding-bottom: 70px;
+  background: url("/images/core-solution-bg.png") center / cover no-repeat;
+}
+
+.platform-highlights-media {
+  margin-left: 100px;
+
+  h2 {
+    font-size: 38px;
+    line-height: 1.2;
+    color: $color-white;
+    margin-left: 55px;
+    margin-bottom: 35px;
+    max-width: 567px;
+  }
+}
+
+.sprial-cicle-wrapper {
+  animation: rotateSpiral 15s ease-in-out infinite;
+}
+
+@keyframes rotateSpiral {
+  0%   { transform: rotate(0deg); }
+  40%  { transform: rotate(180deg); }
+  45%  { transform: rotate(175deg); }
+  70%  { transform: rotate(270deg); }
+  75%  { transform: rotate(265deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.stats-container {
+  margin-left: 115px;
+}
+
+.stat {
+  &:not(:last-child) {
+    margin-bottom: 48px;
+  }
+}
+
+.stat-label {
+  font-size: 14px;
+  line-height: 2;
+  color: $color-muted;
+  text-transform: uppercase;
+}
+
+.gradient-purple { background: $gradient-purple; }
+.gradient-blue   { background: $gradient-blue; }
+.gradient-green  { background: $gradient-green; }
+
+.stat-number {
+  font-size: 101px;
+  line-height: 1.3;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  span {
+    font-size: 70px;
+  }
+}
+
+// ================================
+// Financial Suite Section
+// ================================
+
+.financial-suite-section {
+  padding-top: 45px;
+}
+
+.financial-suite-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+
+  .left-texts {
+    flex: 0 0 45%;
+    max-width: 45%;
+    padding: 0 15px;
+  }
+
+  .financial-cards-container {
+    flex: 0 0 55%;
+    max-width: 55%;
+    padding: 0 15px;
+  }
+}
+
+.left-text {
+  width: 30%;
+}
+
+.left-texts-inner {
+  padding-left: 150px;
+  padding-top: 200px;
+}
+
+.left-texts {
+  h2 {
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    color: $color-white;
+  }
+
+  p {
+    color: $color-white;
+    font-size: 16px;
+    line-height: 26px;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+
+    span{
+        display: inline-block;
+        position: relative;
+        padding-left: 10px;
+        &::before {
+            content: "";
+            width: 4.5px;
+            height: 4.5px;
+            display: inline-block;
+            border-radius: 100%;
+            background-color: $color-accent-cyan;
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }    
+    }
+
+    
+  }
+}
+
+.masonry-wrapper {
+  display: flex;
+  gap: 50px;
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  &-1 {
+    margin-top: 80px;
+  }
+
+  &-2 {
+    .stat-section {
+      margin-top: 50px;
+    }
+  }
+}
+
+.financial-feature-card {
+  position: relative;
+  background-color: $color-dark-transparent;
+  backdrop-filter: blur(20px);
+  padding: 30px;
+  border-radius: 24px;
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+  }
+
+  .accent {
+    width: 2px;
+    align-self: stretch;
+    border-radius: 2px;
+
+    &.blue   { background: $color-accent-cyan; }
+    &.green  { background: #19fb9b; }
+    &.purple { background: #9945ff; }
+    &.yellow { background: #ffd512; }
+  }
+
+  h2 {
+    font-size: 28px;
+    line-height: 1.2;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 15px;
+  }
+
+  .description {
+    font-size: 17px;
+    line-height: 1.5;
+    color: $color-white;
+    margin-bottom: 20px;
+  }
+
+  .stat-value {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .stat {
+    font-size: 28px;
+    line-height: 28px;
+    color: $color-white;
+    margin-bottom: 10px;
+  }
+}
+
+.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #00d9ff;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.stat-label {
+  font-size: 16px;
+  line-height: 28px;
+  color: $color-white;
+  text-transform: uppercase;
+}
+
+// ================================
+// Why Uzofin Section
+// ================================
+
+.why-uzofin {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.moving-tracks {
+  margin-top: 64px;
+
+  .marquee-track-wrapper:not(:last-child) {
+    margin-bottom: 28px;
+  }
+}
+
+.marquee-track-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  gap: 30px;
+}
+
+.scroll-left {
+  animation: scrollLeft 30s linear infinite;
+}
+
+.scroll-right {
+  animation: scrollRight 20s linear infinite;
+}
+
+@keyframes scrollLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.feature-card {
+  flex: 0 0 auto;
+  padding: 27px;
+
+  .arrow-icon {
+    width: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  h4 {
+    font-size: 20px;
+    line-height: 30px;
+    color: $color-white;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 30px;
+    @include gradient-text($gradient-feature-card);
+  }
+}
+
+.feature-card-inner {
+  position: relative;
+  padding-right: 40px;
+}
+
+// ================================
+// Powerful API Section
+// ================================
+
+.powerful-apis {
+  padding-top: 100px;
+  padding-bottom: 277px;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url("/images/powerful-api-bg.png") center / cover no-repeat;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+  }
+}
+
+// ================================
+// Future CTA Section
+// ================================
+
+.future-cta {
+  padding-top: 167px;
+  padding-bottom: 40px;
+  overflow: hidden;
+
+  .section-title-xxl {
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      max-width: 870px;
+      height: 404px;
+      background-image: url("/images/future-cta-bg.png");
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      z-index: -1;
+      top: -138px;
+      left: -114px;
+    }
+  }
+}
+
+// ================================
+// Industry Section
+// ================================
+
+.industry {
+  background: url("/images/industry-bg.png") center / cover no-repeat;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 186px;
+    background: url("/images/industry-bg-top.png") center / cover no-repeat;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 186px;
+    background: url("/images/industry-bg-bottom.png") center / cover no-repeat;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+  }
+
+  .section-title-xxl {
+    padding-bottom: 50px;
+  }
+}
+
+.industry-card {
+  border-radius: 20px;
+  padding: 40px 30px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)) padding-box,
+    linear-gradient(301.01deg, rgba(52, 52, 52, 0.25) 35.9%, rgba(255, 255, 255, 0.25) 105.37%) border-box;
+  border: 2px solid transparent;
+  text-align: center;
+  min-height: 320px;
+  cursor: pointer;
+
+  h4 {
+    font-size: 30px;
+    font-weight: 400;
+    color: $color-white;
+    -webkit-text-stroke: 2px transparent;
+    background: $gradient-industry-title;
+    -webkit-background-clip: text;
+    padding-bottom: 24px;
+    transition: 0.25s transform ease;
+  }
+
+  &:hover h4 {
+    transform: scale(1.04);
+  }
+
+  p {
+    font-size: 22px;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.8);
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .check-icon {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    width: 36px;
+    transition: 0.25s transform ease;
+    transform: scale(0);
+  }
+
+  &:hover .check-icon {
+    transform: scale(1);
+  }
+}
+
+.industry-marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  height: 440px;
+  display: flex;
+  align-items: center;
+
+  .marquee {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    flex: 1;
+  }
+}
+
+.card-wrapper {
+  flex: 0 0 460px;
+  max-width: 460px;
+}
+
+// ================================
+// Responsive Styles
+// ================================
+
+@media only screen and (max-width: 1599px) {
+  .hero-banner        { padding-top: 160px; }
+  .section-title-xxl  { font-size: 80px; }
+  .section-title-xl   { font-size: 64px; }
+  .section-title-lg   { font-size: 52px; }
+  .section-subtitle-text { font-size: 18px; }
+  .core-solutions     { padding-top: 130px; }
+  .stat-number        { font-size: 80px; }
+
+  .platform-highlights-media h2,
+  .left-texts h2 { font-size: 32px; }
+
+  .financial-feature-card {
+    h2, .stat { font-size: 24px; }
+    .description { font-size: 16px; }
+  }
+
+  .industry {
+    padding-top: 60px;
+    padding-bottom: 90px;
+
+    &-card {
+      h4 { font-size: 26px; }
+      p  { font-size: 20px; }
+    }
+  }
+}
+
+@media only screen and (max-width: 1365px) {
+  .right-animatated-img { display: none; }
+}
+
+@media only screen and (max-width: 1199px) {
+  .platform-highlights-media { margin-left: 0; }
+  .left-texts-inner { padding-left: 40px; }
+  .powerful-apis {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .platform-highlights-media h2 {
+    margin-left: 0;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .stats-container {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .left-texts-inner {
+    padding-left: 0;
+    padding-top: 60px;
+  }
+
+  .financial-suite-row {
+    .left-texts,
+    .financial-cards-container {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  section { overflow: hidden !important; }
+
+  .section-title-xxl {
+    font-size: 64px;
+    line-height: 1.2;
+    padding-bottom: 50px;
+  }
+
+  .section-title-xl  { font-size: 64px; }
+  .section-title-lg  { font-size: 48px; }
+  .section-subtitle-text { font-size: 18px; }
+
+  .future-cta {
+    padding-top: 130px;
+    padding-bottom: 15px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .future-cta .section-title-xxl::before { display: none; }
+}
+
+@media only screen and (max-width: 575px) {
+  .section-title-xxl { font-size: 42px; }
+  .section-title-xl  { font-size: 42px; }
+  .section-title-lg  { font-size: 32px; }
+  .section-subtitle  { font-size: 28px; }
+
+  .hero-banner {
+    padding-top: 120px;
+    padding-bottom: 60px;
+
+    p { font-size: 18px; }
+  }
+
+  .core-solutions { padding: 50px 0; }
+
+
+  .platform-highlights-media h2,
+  .left-texts h2 { font-size: 28px; }
+  .left-texts p{max-width: 85%; margin:0 auto;}
+  .left-texts-inner{
+    text-align: center;
+  }
+
+  .financial-feature-card { border: 1px solid #2b2b2b; }
+
+  .stat-number {
+    font-size: 60px;
+    span { font-size: 40px; }
+  }
+
+  .masonry-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .column {
+    gap: 20px;
+
+    &-1 { margin-top: 40px; }
+  }
+
+  .powerful-apis { padding-top: 30px; }
+  .future-cta    { padding-top: 50px; }
+
+  .card-wrapper {
+    flex: 1;
+    max-width: 100%;
+    min-width: 360px;
+  }
+
+  .industry {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    &-marquee-wrapper { height: 380px; }
+    &-card {
+      min-height: 260px;
+      h4 { font-size: 22px; }
+      p  { font-size: 16px; }
+    }
+  }
+}

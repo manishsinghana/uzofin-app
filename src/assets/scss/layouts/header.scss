@@ -1,0 +1,196 @@
+/* ------------------------
+Header CSS Start Here
+--------------------------*/
+
+.header {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  padding: 25px 0;
+  background-color: rgba(3, 3, 3, 0.5);
+
+  &.header--scrolled {
+    background-color: rgba(3, 3, 3, 1);
+  }
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    max-width: 1170px;
+    margin: 0 auto;
+
+    @media only screen and (min-width: 1600px) {
+      max-width: 1440px;
+    }
+  }
+
+  .brand-logo {
+    position: relative;
+    width: 114px;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+
+  &::before {
+    @media only screen and (max-width: 1279px) {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 24, 33, 0.8);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 99;
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+      cursor: pointer;
+      display: none;
+    }
+  }
+
+  &.mobile-menu--open {
+    &::before {
+      display: block;
+      opacity: 0.5;
+    }
+
+    .main-navigation {
+      left: 0;
+    }
+  }
+
+  @media only screen and (max-width: 1279px) {
+    padding: 10px 0;
+
+    .header-right {
+      gap: 15px;
+    }
+  }
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  .menu-item {
+    font-size: 16px;
+    font-weight: 500;
+    color: #9d9d9d;
+    transition: 0.25s color ease;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  .menu-item-wrapper {
+    &.has-children {
+      position: relative;
+
+      .menu-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+
+        svg path {
+          transition: 0.25s fill ease;
+        }
+
+        &:hover svg path {
+          fill: #fff;
+        }
+      }
+    }
+
+    &.has-children.open .sub-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 15px;
+    }
+  }
+
+  @media only screen and (max-width: 1279px) {
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    padding: 15px;
+  }
+}
+
+.mobile-nav-toggle {
+  display: none;
+
+  @media only screen and (max-width: 1279px) {
+    display: inline-block;
+    max-width: 20px;
+  }
+}
+
+.main-navigation {
+  @media only screen and (max-width: 1279px) {
+    position: fixed;
+    z-index: 999;
+    height: 100%;
+    overflow-y: auto;
+    width: 250px;
+    top: 0;
+    left: -250px;
+    background-color: #240040;
+    transition: 0.4s ease;
+  }
+}
+
+header {
+  .sub-menu {
+    display: none;
+  }
+
+  @media only screen and (min-width: 1280px) {
+    .sub-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      visibility: hidden;
+      opacity: 0;
+      width: 150px;
+      top: 80px;
+      padding: 15px;
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      transition: all 0.3s ease-in-out;
+      background: #222;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.175);
+      position: absolute;
+      z-index: 11;
+    }
+
+    .nav-menu li:hover > ul {
+      opacity: 1;
+      visibility: visible;
+      top: calc(100% + 5px);
+    }
+  }
+}
+
+.header-right {
+  @media only screen and (max-width: 479px) {
+    .button {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  }
+}
+
+/* ------------------------
+Header CSS End Here
+--------------------------*/
