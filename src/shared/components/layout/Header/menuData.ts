@@ -41,6 +41,6 @@ export const menuItems:MenuItem[] = [
   {
     id: "4",
     label: "Support",
-    href: "/support",
+    href: "/",
   }
 ];
